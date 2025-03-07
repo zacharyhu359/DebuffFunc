@@ -27,5 +27,6 @@ DBT_ReduceDotTime(spellName, timeToReduce)
 ### How to use
 - Below marco will first try to cast Moonfire, on success cast it will start the moonfire timer then stop running the remaining scripts. on the second press, because the moonfire is successfully casted, it won't stop there and try to cast the insect swarm;
 
-/script if DBT_SpellCastTimer("Moonfire", 18) then return end; /n
+/script if DBT_SpellCastTimer("Moonfire", 18) then return end;
+
 /script if DBT_SpellCastTimer("Insect Swarm", 18) then return end;
