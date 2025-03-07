@@ -16,7 +16,7 @@ DBT_ResetTimers()
 - **How it works**:
   - Resets the `DBT_Timers` table, removing all stored timer data.
 
-function DBT_ReduceDotTime(spellName, timeToReduce)
+DBT_ReduceDotTime(spellName, timeToReduce)
 - **Purpose**: Reduce the time for a specific debuff.
 
 ### Example
