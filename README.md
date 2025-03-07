@@ -21,10 +21,11 @@ DBT_ReduceDotTime(spellName, timeToReduce)
 
 ### Example
 
-DBT_SpellCastTimer("Moonfire", 18) -- Tracks and casts Fireball every 18 seconds.
-DBT_ResetTimers() -- Clears all spell tracking, use this when multiple player using the same debuff on the target and you want to switch target.
+1. DBT_SpellCastTimer("Moonfire", 18) -- Tracks and casts Fireball every 18 seconds.
+2. DBT_ResetTimers() -- Clears all spell tracking, use this when multiple player using the same debuff on the target and you want to switch target.
 
 ### How to use
-- Below marco will first try to cast Moonfire, on success cast it will start the moonfire timer then stop running the remaining scripts. on the second press, because the moonfire is successfully casted, it won't stop there and try to cast the insect swarm
+- Below marco will first try to cast Moonfire, on success cast it will start the moonfire timer then stop running the remaining scripts. on the second press, because the moonfire is successfully casted, it won't stop there and try to cast the insect swarm;
+
 /script if DBT_SpellCastTimer("Moonfire", 18) then return end;
 /script if DBT_SpellCastTimer("Insect Swarm", 18) then return end;
