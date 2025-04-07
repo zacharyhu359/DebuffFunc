@@ -69,7 +69,9 @@ Returns `-1` if the timer hasn't been set.
 
 - `DotTime` should be the duration (in seconds) of the effect (e.g., `12` for Corruption).
 - Ideal for use in conditional macros or custom automation systems.
-- Depends on helper functions: `SpellReady()` and `buffed()` — you need to define these separately.
+- Depends on helper functions: `SpellReady()` and `buffed()` — you need to define these separately or get
+-  [SuperMarco]https://github.com/qs-crocodyle/SuperMacro-turtle
+- [RoidMarco] https://github.com/MarcelineVQ/Roid-Macros
 
 ---
 
