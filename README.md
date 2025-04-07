@@ -83,7 +83,7 @@ DBT_SpellCastTimer("Corruption", 12)
 
 ### Example
 
-1. DBT_SpellCastTimer("Moonfire", 18) -- Tracks and casts Fireball every 18 seconds.
+1. DBT_SpellCastTimer("Moonfire", 18) -- Tracks and casts moonfire every 18 seconds.
 2. DBT_ResetTimers() -- Clears all spell tracking, use this when multiple player using the same debuff on the target and you want to switch target.
 
 ### How to use
