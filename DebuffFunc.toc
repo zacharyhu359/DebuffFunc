@@ -1,0 +1,7 @@
+## Interface: 11200
+## Title: DebuffFunc
+## Notes: SomeDebuffHelper.
+## Author: Nada
+## Version: 1.0
+
+DebuffFunc.lua
