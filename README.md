@@ -1,23 +1,83 @@
-Quick Guide to DBT Functions
+# DBT Spell Cast Timer
 
-DBT_SpellCastTimer(spellName, DotTime)
-- **Purpose**: Manages casting and timing of a spell.
-- **How it works**:
-  1. **Initialize Timer**: If the spell isn't tracked, start tracking with the current time.
-  2. **Update Timer**: Reset the timer if the spell is ready and not on the target.
-  3. **Shift Key Reset**: Resets all timers if the Shift key is held down.
-  4. **Cast Spell**: If the spell's cooldown is ready, cast it and update its timer.
-  5. **Return Values**:
-     - `true`: Spell was successfully cast.
-     - `false`: Spell wasn't cast.
+A lightweight Lua utility for managing spell timers, ideal for automating DoT re-casts and other periodic spell logic in WoW Classic macros or addons.
 
-DBT_ResetTimers()
-- **Purpose**: Clears all spell timers.
-- **How it works**:
-  - Resets the `DBT_Timers` table, removing all stored timer data.
+---
 
-DBT_ReduceDotTime(spellName, timeToReduce)
-- **Purpose**: Reduce the time for a specific debuff.
+## 🔧 Features
+
+- Tracks per-spell cast timers.
+- Automatically re-casts when timers expire.
+- Handles cooldowns, active buffs/debuffs, and custom logic.
+- Optional resist-ignore casting.
+- Manual timer control functions included.
+
+---
+
+## 📦 API Functions
+
+### `DBT_SpellCastTimer(spellName, DotTime)`
+Casts the spell if:
+- The spell is off cooldown,
+- It's not currently applied on the target,
+- Its internal timer has expired.
+
+**Ignores resists** (re-casts if resisted are up to you).
+
+---
+
+### `DBT_SpellCastTimerIgnoreResist(spellName, DotTime)`
+Same as above but:
+- **Skips debuff check** on the target.
+- **Holding Shift** resets all timers (useful for emergency resets).
+
+---
+
+### `DBT_ResetTimers()`
+Clears all timers.
+
+---
+
+### `DBT_ResetTimer(spellName)`
+Resets the timer for a specific spell only.
+
+---
+
+### `DBT_ReduceDotTime(spellName, timeToReduce)`
+Reduces the remaining timer by a custom amount.
+
+---
+
+### `DBT_SetTimerTime(spellName, DotTime)`
+Sets the timer manually (e.g., to sync with external triggers).
+
+---
+
+### `DBT_GetRemainingTime(spellName)`
+Returns how many seconds remain until the spell can be re-cast.  
+Returns `0` if timer is not set.
+
+---
+
+### `DBT_GetElapsedTime(spellName)`
+Returns how many seconds have passed since the spell was last cast.  
+Returns `-1` if the timer hasn't been set.
+
+---
+
+## 🧠 Usage Notes
+
+- `DotTime` should be the duration (in seconds) of the effect (e.g., `12` for Corruption).
+- Ideal for use in conditional macros or custom automation systems.
+- Depends on helper functions: `SpellReady()` and `buffed()` — you need to define these separately.
+
+---
+
+## 🛠️ Example
+
+-- Cast Corruption if it's ready and not active on the target
+DBT_SpellCastTimer("Corruption", 12)
+
 
 ### Example
 
